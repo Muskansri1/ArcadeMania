@@ -1,0 +1,122 @@
+
+.header-job {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+
+}
+
+.nav-job {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  border-radius: 15px;
+  background-color: #d4c7e2!important;
+
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+}
+
+li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+li a:hover {
+  background-color: #ddd;
+}
+
+
+.content-AboutUs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px;
+}
+
+.image-section-AboutUs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.image-container-AboutUs {
+  width: 250px;
+  height: 250px;
+  margin: 20px;
+  perspective: 1000px; /* Required for 3D transform */
+}
+
+.image-card-AboutUs {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d; /* Required for 3D transform */
+  transition: transform 0.5s ease; /* Animation duration and easing */
+}
+
+.front-image-AboutUs, .back-image-AboutUs {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide the back of the card */
+}
+
+.front-image-AboutUs {
+  z-index: 2; /* Show front of the card */
+}
+
+
+.back-image-AboutUs {
+  transform: rotateY(180deg); /* Flip the card to show back content */
+
+}
+
+.back-image-AboutUs p{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+  font-weight: 200;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Add hover effect to flip the card */
+.image-card-AboutUs:hover {
+  transform: rotateY(180deg);
+}
+
+.aboutus{
+  font-weight: 800 !important;
+}
+footer {
+  background-color: #0d1117 !important;
+  color: white;
+  height: 50px !important;
+  text-align: center;
+  justify-content: end;
+  /* margin-top: -300px !important; */
+  position: fixed !important;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-text{
+  color: white;
+}
+
