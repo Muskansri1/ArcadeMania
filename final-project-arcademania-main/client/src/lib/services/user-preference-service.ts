@@ -1,7 +1,7 @@
-import { raiseError } from "../../utils/toastUtils";
-import axios from "../../../lib/config/axios.config";
- import { API_URL } from "../../../lib/config/config";
-import type { UserPreference } from "../../../lib/types/components/common";
+import { raiseError } from "../utils/toastUtils";
+import axios from "../config/axios.config";
+import { API_URL } from "../config/config";
+import type { UserPreference } from "../types/components/common";
 
 const defaultPreferences: UserPreference = {
   theme: "dark",
