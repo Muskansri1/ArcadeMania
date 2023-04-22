@@ -14,7 +14,7 @@ import session from 'express-session';
 const port = 8080;
 
 // Database Connection
-mongoose.connect('mongodb+srv://WebProject:WebProject123@web-database.ixwsyza.mongodb.net/test', (err) => {
+mongoose.connect('mongodb+srv://WebProject:WebProject123@web-database.ixwsyza.mongodb.net/ArcadeMania', (err) => {
     if (err) {
         logger.error(`Unable to connect to MongoDB database: ${err}`);
     }

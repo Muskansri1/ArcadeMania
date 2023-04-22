@@ -1,14 +1,12 @@
-# ArcadeMania
 
------------------------------------------------------------------------------------------------------------------
 
 ## Team Members
 
-1. Krishnna Sarrdah 
-2. Shreya Sisodiya
-3. Riddhi Vora
-4. Muskan Shrivastava
-5. Richa Jain
+1. Krishnna Sarrdah - 002771329
+2. Shreya Sisodiya -  002725403
+3. Riddhi Vora - 002761911
+4. Muskan Shrivastava - 002794929 
+5. Richa Jain - 002656012
 
 -----------------------------------------------------------------------------------------------------------------
 

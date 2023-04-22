@@ -1,5 +1,3 @@
-
-
 import {
   ILeaderboardGameData,
   ILeaderboard,
@@ -67,36 +65,22 @@ export const getLeaderboard = (
 };
 
 /**
- * Saves or updates the score for the given game and user.
+ * Saves the score for the given game and user.
  *
  * @param gameId Game Id.
  * @param userId User Id.
  * @param score Score.
  * @returns Leaderboard.
  */
-export const saveScore = async (
+export const saveScore = (
   gameId: number,
   userId: mongoose.ObjectId,
   score: number
 ): Promise<ILeaderboard> => {
-  const existingRecord = await Leaderboard.findOne({ gameId, userId }).exec();
-
-  if (existingRecord) {
-    // If user already has a score for this game, update it if the new score is higher
-    if (score > existingRecord.score) {
-      existingRecord.score = score;
-      return existingRecord.save();
-    } else {
-      // Return existing record without saving if new score is not higher
-      return existingRecord;
-    }
-  } else {
-    // If user does not have a score for this game, create a new record
-    const newRecord = new Leaderboard({
-      gameId,
-      userId,
-      score,
-    });
-    return newRecord.save();
-  }
-};
+  const newRecord = new Leaderboard({
+    gameId,
+    userId,
+    score,
+  });
+  return newRecord.save();
+}

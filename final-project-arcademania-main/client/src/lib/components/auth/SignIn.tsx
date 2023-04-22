@@ -52,10 +52,13 @@ import {
      * @param values obtained from the form
      */
     const login = async (values: JSON) => {
+      
       const accessTokenObj = await signIn(values);
+      var flag = false;
       if (accessTokenObj.status === 200) {
         const body = await accessTokenObj.json();
         if (body.accessToken !== null) {
+          flag = true;
           setAxiosAuthHeader(body.accessToken);
           setSessionStorageToken(body.accessToken);
           dispatch(setAccessToken({ token: body.accessToken }));
@@ -63,11 +66,16 @@ import {
         }
         showSuccess("User logged In Successfully");
         onClose();
+
+        if(flag &&  body.username === 'admin'){
+            navigate('/Admin');
+            return;
+          }
       } else {
         raiseError("Username or password is incorrect, please try again later");
       }
     };
-  
+ 
     /**
      * returning the form along with trigger button
      */
@@ -144,10 +152,7 @@ import {
                             validate={(value: string) => {
                               let error;
   
-                              if (value.length < 5) {
-                                error =
-                                  "Password must contain at least 6 characters";
-                              }
+                             
   
                               return error;
                             }}
