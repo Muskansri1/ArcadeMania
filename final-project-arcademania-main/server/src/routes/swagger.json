@@ -82,6 +82,58 @@
                 }
             }
         },
+        "/auth/getAllUsers" : {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get all users",
+                "description": "Retrieves all users from the database",
+                "operationId": "getAllUsers",
+                "produces": [
+                    "application/json"
+                ],
+                
+                "responses": {
+                    "200": {
+                        "description": "All users information are retrieved successfully"
+                    },
+                    "500": {
+                        "description": "Cannot fetch users details"
+                    }
+                }
+            }
+        },
+        "/auth/deleteUser/{emailId}" : {
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Delete a user",
+                "description": "Deletes a user from the database using email address",
+                "operationId": "deleteUserByEmail",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "emailId",
+                        "description": "The email address of the user",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User deleted successfully"
+                    },
+                    "500": {
+                        "description": "Cannot remove user"
+                    }
+                }
+            }
+        },
         "/leaderboard": {
             "get": {
                 "tags": [
@@ -330,20 +382,26 @@
         "User": {
             "type": "object",
             "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "username": {
-                    "type": "string"
-                },
-                "password": {
-                    "type": "string"
-                }
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              }
             }
-        },
+          },
+          "Users": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/User"
+            }
+          },
         "Login": {
             "type": "object",
             "properties": {
