@@ -4,7 +4,11 @@
 
 ## Team Members
 
-1. 
+1. Krishnna Sarrdah 
+2. Shreya Sisodiya
+3. Riddhi Vora
+4. Muskan Shrivastava
+5. Richa Jain
 
 -----------------------------------------------------------------------------------------------------------------
 
@@ -27,26 +31,7 @@
 4. Leaderboard
 5. Favourites
 6. Recently viewed
-
------------------------------------------------------------------------------------------------------------------
-
-## Domain Diagram
-
-![Domain Diagram](diagrams/Domain.png)
-![Subdomain & Context Diagram](diagrams/Domain%20Context.png)
-![Domain Layers](diagrams/Arch.png)
-
------------------------------------------------------------------------------------------------------------------
-
-## Component Diagram
-
-![Component Diagram](diagrams/Component%20Diagram.png)
-
------------------------------------------------------------------------------------------------------------------
-
-## Class diagram
-
-![Class Diagram](https://user-images.githubusercontent.com/113252176/199360531-e488671f-7673-486e-a3ea-590b57a6c8d5.png)
+7. Admin Dashboard
 
 -----------------------------------------------------------------------------------------------------------------
 
@@ -181,13 +166,12 @@
 
 ## References
 
-1. <https://nextjs.org/docs>
-2. <https://www.webtips.dev/javascript-game-ideas>
-3. <https://www.mirkosertic.de/blog/2013/04/domain-driven-design-example>
-4. <https://chakra-ui.com/>
-5. <https://www.webtips.dev/javascript-game-ideas>
-6. <https://sass-lang.com/documentation>
-7. <https://www.passportjs.org/docs>
-8. <https://reactjs.org/docs>
+1. <https://www.webtips.dev/javascript-game-ideas>
+2. <https://www.mirkosertic.de/blog/2013/04/domain-driven-design-example>
+3. <https://chakra-ui.com/>
+4. <https://www.webtips.dev/javascript-game-ideas>
+5. <https://sass-lang.com/documentation>
+6. <https://www.passportjs.org/docs>
+7. <https://reactjs.org/docs>
 
 -----------------------------------------------------------------------------------------------------------------
