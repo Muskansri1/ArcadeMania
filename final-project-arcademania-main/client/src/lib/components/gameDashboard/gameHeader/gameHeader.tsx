@@ -25,6 +25,7 @@ import {
   import { raiseError } from "../../../../lib/utils/toastUtils";
   import { isAuthenticated } from "../../../../lib/utils/tokenUtils";
 import React from "react";
+  
   /**
    * This component creates and renders the game header with game name along with help and option to mark favourite
    * @returns GameDashboard Header Component
