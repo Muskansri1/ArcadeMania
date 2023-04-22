@@ -32,7 +32,8 @@ import {
   import type { SignUpUserType } from "../../../lib/types/components/auth.types";
   import { raiseError, showSuccess } from "../../../lib/utils/toastUtils";
   import { setSessionStorageToken } from "../../../lib/utils/tokenUtils";
-  
+  // import passwordValidator from '../../../../../server/src/config/validators';
+  import passwordValidator from 'password-validator';
   /**
    * This component is used to create and render the signUp Form in a drawer
    * @returns SignUp Form in a drawer with drawer trigger button
@@ -50,6 +51,31 @@ import {
      * This function is used to create a user and update the login status, it takes 1 parameter
      * @param values obtainer from the signup form
      */
+    // const userSignUp = async (values: SignUpUserType) => {
+    //   const jsonValues = {
+    //     name: `${values.firstName} ${values.lastName}`,
+    //     email: values.email,
+    //     username: values.username,
+    //     password: values.password,
+    //   };
+    //   const accessTokenObj = await createUser(
+    //     JSON.parse(JSON.stringify(jsonValues))
+    //   );
+    //   if (accessTokenObj.status === 200) {
+    //     const body = await accessTokenObj.json();
+    //     if (body.accessToken !== null) {
+    //       setAxiosAuthHeader(body.accessToken);
+    //       setSessionStorageToken(body.accessToken);
+    //       dispatch(setAccessToken({ token: body.accessToken }));
+    //     }
+    //     showSuccess("User created Successfully");
+    //   } else {
+    //     raiseError("User already exists");
+    //   }
+    //   onClose();
+    // };
+
+
     const userSignUp = async (values: SignUpUserType) => {
       const jsonValues = {
         name: `${values.firstName} ${values.lastName}`,
@@ -57,6 +83,23 @@ import {
         username: values.username,
         password: values.password,
       };
+      const passwordError = validatePassword(values.password);
+      const confirmPasswordError = validateConfirmPassword(values.confirmpassword);
+      const usernameError = validateUsername(values.username);
+      const emailError = validateEmail(values.email);
+      const lastNameError = validateLastName(values.lastName);
+    
+      if (
+        passwordError ||
+        confirmPasswordError ||
+        usernameError ||
+        emailError ||
+        lastNameError
+      ) {
+        raiseError("Password must be on length 8 and contain at least one uppercase, one lowercase, one special character and one number");
+        return;
+      }
+    
       const accessTokenObj = await createUser(
         JSON.parse(JSON.stringify(jsonValues))
       );
@@ -73,7 +116,7 @@ import {
       }
       onClose();
     };
-  
+    
     /**
      * This method is used to set the password value which is used later to validate
      * @param value password field value
@@ -81,23 +124,38 @@ import {
     const setPassword = (value: string) => {
       password = value;
     };
-  
+    
     /**
      * This method is used to validate the password value
      * @param value password field value
      * @returns error if value doesn't meet the basic validations
      */
     const validatePassword = (value: string) => {
+      const schema = new passwordValidator();
+    
+      schema
+        .is().min(8)                                    // Minimum length 8
+        .is().max(100)                                  // Maximum length 100
+        .has().uppercase(1)                             // Must have uppercase letters
+        .has().lowercase(1)                             // Must have lowercase letters
+        .has().digits(2)                                // Must have at least 2 digits
+        .has().symbols()
+        .is().not().oneOf(['Passw0rd', 'Password123']); // Blacklist
+    
       let error;
-      if (!value) error = "Password is required";
-      else if (value.length < 5)
-        error = "Password must contain at least 6 characters";
+      if (!value) {
+        error = "Password is required";
+      } else if (!schema.validate(value)) {
+        error = "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, two digits, one symbol and must not be a common password.";
+      }
+    
       if (!error) {
         setPassword(value);
       }
+    
       return error;
     };
-  
+    
     /**
      * This method is used to validate the confirm password value with saved password value
      * @param value confirm password field value
@@ -110,7 +168,7 @@ import {
       }
       return error;
     };
-  
+    
     /**
      * This method is used to validate the username value
      * @param value username field value
@@ -123,7 +181,7 @@ import {
       }
       return error;
     };
-  
+    
     /**
      * This method is used to validate the email value
      * @param value email field value
@@ -132,13 +190,13 @@ import {
     const validateEmail = (value: string) => {
       let error;
       if (!value) {
-        error = "email is required";
+        error = "Email is required";
       } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
         error = "Invalid email address";
       }
       return error;
     };
-  
+    
     /**
      * This method is used to validate the lastname value
      * @param value lastname field value
@@ -151,6 +209,7 @@ import {
       }
       return error;
     };
+    
   
     /**
      * returning the main signup form in a drawer with trigger button
@@ -397,3 +456,4 @@ import {
   
   export default SignupDrawer;
   
+
