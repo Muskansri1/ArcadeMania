@@ -14,6 +14,12 @@ router.route('/auth/signup').post(authController.createUser);
 // Signin Route
 router.route('/auth/signin').post(authController.loginUser);
 
+// Fetch all users
+router.route('/auth/getAllUsers').get(authController.getAllUsers);
+
+// Delete a user
+router.route('/auth/deleteUser/:emailId').delete(authController.deleteUser);
+
 // Logout Route
 router.get("/auth/logout", (req, res, next) => {
     req.logout((err) => {
