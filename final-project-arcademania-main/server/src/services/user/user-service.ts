@@ -29,3 +29,24 @@ export const updateUser = async (id:mongoose.ObjectId, user: IUser) => {
     }
     return user;
   }
+
+/**
+ * This method returns all the users present
+ */
+  export const getAllUsers = async(): Promise<IUser[]> => {
+    const users: IUser[] = await User.find();
+
+    return users
+  }
+
+/**
+ * This method deletes the user identified with the help of userId
+ * @param userId - id value of type mongoose.ObjectId
+ */
+  export const deleteUser = async(emailId:string) => {
+    const deletedUser = await User.findOneAndDelete({email: emailId});
+
+    if(!deletedUser) {
+      throw new Error("User deletion failed");
+    }
+  }
