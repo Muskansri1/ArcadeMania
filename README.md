@@ -6,10 +6,10 @@
 
 ## Team Members
 
-1. Krishnna Sarrdah 002771329
-2. Shreya Sisodiya 002725403
-3. Riddhi Vora 002761911
-4. Muskan Shrivastava 002794929 
+1. Muskan Shrivastava 002794929 
+2. Krishnna Sarrdah 002771329
+3. Shreya Sisodiya 002725403
+4. Riddhi Vora 002761911
 5. Richa Jain 002656012
 
 -----------------------------------------------------------------------------------------------------------------
