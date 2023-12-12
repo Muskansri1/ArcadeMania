@@ -6,7 +6,7 @@
 
 ## Team Members
 
-1. Muskan Shrivastava 002794929 
+1. Muskan Srivastava 002794929 
 2. Krishnna Sarrdah 002771329
 3. Shreya Sisodiya 002725403
 4. Riddhi Vora 002761911
